@@ -1,0 +1,8 @@
+{
+  "name": "GBHSS Manjeri - Official School Portal",
+  "description": "Government Boys Higher Secondary School Manjeri (Estd. 1908), Malappuram, Kerala. Official portal for academic streams, campus infrastructure, Kalolsavam records, sports honours, and student wings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
