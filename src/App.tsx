@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { HeritageSection } from './components/HeritageSection';
-import { HistoryTimeline } from './components/HistoryTimeline';
 import { CampusMetrics } from './components/CampusMetrics';
 import { ProgrammesSection } from './components/ProgrammesSection';
 import { AchievementsSection } from './components/AchievementsSection';
 import { AcademicsSection } from './components/AcademicsSection';
 import { LifeGallery } from './components/LifeGallery';
-import { ContactLeadership } from './components/ContactLeadership';
 import { Footer } from './components/Footer';
 import { SchoolPortalModal } from './components/SchoolPortalModal';
 import { KailasamModal } from './components/KailasamModal';
 import { RecordDetailModal } from './components/RecordDetailModal';
 import { GalleryLightboxModal } from './components/GalleryLightboxModal';
+import { HistoryTimeline } from './components/HistoryTimeline';
 
 export default function App() {
   // Modal states
@@ -21,7 +20,7 @@ export default function App() {
   const [historyModalOpen, setHistoryModalOpen] = useState(false);
   const [recordModalOpen, setRecordModalOpen] = useState(false);
   const [recordType, setRecordType] = useState<'kalolsavam' | 'sports'>('kalolsavam');
-  
+
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
@@ -68,19 +67,17 @@ export default function App() {
         {/* Institutional Heritage (Vision, Mission, Values) */}
         <HeritageSection />
 
-        {/* Archival Database Record (Chronicles of GBHSS Manjeri + Kailasam Note) */}
-        <HistoryTimeline
-          onOpenKailasamModal={() => setHistoryModalOpen(true)}
-        />
-
         {/* Academic Excellence (Courses, Departments & Teachers) */}
-        <AcademicsSection onOpenPortalAdmissions={() => setPortalOpen(true)} />
+        {/* <AcademicsSection onOpenPortalAdmissions={() => setPortalOpen(true)} /> */}
 
         {/* Infrastructure & Resources (Facilities: Library, Labs, Classrooms & Sports) */}
         <CampusMetrics />
 
         {/* Co-Curricular & Civic Training (Programmes: Events, Clubs, Arts & Extracurricular) */}
-        <ProgrammesSection />
+        {/* <ProgrammesSection /> */}
+        <HistoryTimeline
+          onOpenKailasamModal={() => setHistoryModalOpen(true)}
+        />
 
         {/* Verified Documented Records (Achievements: Academic Results, Sports Awards & Accomplishments) */}
         <AchievementsSection
@@ -92,9 +89,6 @@ export default function App() {
         <LifeGallery
           onOpenPhotoLightbox={handleOpenPhotoLightbox}
         />
-
-        {/* School Administration & Office Coordinates */}
-        <ContactLeadership />
       </main>
 
       {/* Footer */}

@@ -38,7 +38,7 @@ export const KailasamModal: React.FC<KailasamModalProps> = ({ isOpen, onClose })
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/75 backdrop-blur-sm animate-in fade-in">
       <div className="bg-[#FFFDF8] rounded-3xl w-full max-w-3xl max-h-[92vh] flex flex-col shadow-2xl border border-amber-200 overflow-hidden animate-in zoom-in-95 duration-200">
-        
+
         {/* Header */}
         <div className="px-6 py-5 bg-[#2B1B17] text-white flex items-center justify-between border-b border-amber-900/40 shrink-0">
           <div className="flex items-center gap-3">
@@ -68,7 +68,7 @@ export const KailasamModal: React.FC<KailasamModalProps> = ({ isOpen, onClose })
 
         {/* Scrollable Body */}
         <div className="p-6 sm:p-8 overflow-y-auto flex-1 space-y-6">
-          
+
           {/* Visual Heritage Showcase: 4K Clear & Original */}
           <div className="bg-[#1C130E] rounded-2xl p-4 sm:p-5 border border-amber-900/50 text-white shadow-xl overflow-hidden">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-3 pb-3 border-b border-amber-900/50">
@@ -91,11 +91,10 @@ export const KailasamModal: React.FC<KailasamModalProps> = ({ isOpen, onClose })
                 <button
                   type="button"
                   onClick={() => setPhotoView('4k')}
-                  className={`px-3 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 ${
-                    photoView === '4k'
+                  className={`px-3 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 ${photoView === '4k'
                       ? 'bg-amber-400 text-slate-950 shadow-sm'
                       : 'text-amber-200/80 hover:text-white'
-                  }`}
+                    }`}
                 >
                   <Sparkles className="w-3 h-3" />
                   <span>4K Clear View</span>
@@ -103,11 +102,10 @@ export const KailasamModal: React.FC<KailasamModalProps> = ({ isOpen, onClose })
                 <button
                   type="button"
                   onClick={() => setPhotoView('original')}
-                  className={`px-3 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 ${
-                    photoView === 'original'
+                  className={`px-3 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 ${photoView === 'original'
                       ? 'bg-amber-700 text-white shadow-sm'
                       : 'text-amber-200/80 hover:text-white'
-                  }`}
+                    }`}
                 >
                   <ImageIcon className="w-3 h-3" />
                   <span>Original Photo</span>

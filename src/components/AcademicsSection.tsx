@@ -117,7 +117,7 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
   return (
     <section id="academics" className="py-16 lg:py-24 bg-[#FBFBFA] border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-[0.72rem] font-bold tracking-wider uppercase mb-3">
@@ -135,44 +135,40 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
           <div className="inline-flex flex-wrap justify-center p-1.5 mt-8 bg-slate-200/70 rounded-2xl border border-slate-300/80 shadow-inner gap-1">
             <button
               onClick={() => setActiveTab('courses')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                activeTab === 'courses'
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeTab === 'courses'
                   ? 'bg-white text-slate-950 shadow-md scale-[1.02]'
                   : 'text-slate-600 hover:text-slate-950'
-              }`}
+                }`}
             >
               <BookOpen className="w-4 h-4 text-amber-600" />
               <span>Courses &amp; Streams</span>
             </button>
             <button
               onClick={() => setActiveTab('departments')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                activeTab === 'departments'
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeTab === 'departments'
                   ? 'bg-white text-slate-950 shadow-md scale-[1.02]'
                   : 'text-slate-600 hover:text-slate-950'
-              }`}
+                }`}
             >
               <Layers className="w-4 h-4 text-blue-600" />
               <span>Departments (6)</span>
             </button>
             <button
               onClick={() => setActiveTab('teachers')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                activeTab === 'teachers'
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeTab === 'teachers'
                   ? 'bg-white text-slate-950 shadow-md scale-[1.02]'
                   : 'text-slate-600 hover:text-slate-950'
-              }`}
+                }`}
             >
               <Users className="w-4 h-4 text-emerald-600" />
               <span>Teachers Directory ({FACULTY_DIRECTORY.length}+)</span>
             </button>
             <button
               onClick={() => setActiveTab('calendar')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                activeTab === 'calendar'
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${activeTab === 'calendar'
                   ? 'bg-white text-slate-950 shadow-md scale-[1.02]'
                   : 'text-slate-600 hover:text-slate-950'
-              }`}
+                }`}
             >
               <Calendar className="w-4 h-4 text-purple-600" />
               <span>Academic Calendar 2025–26</span>
@@ -187,7 +183,7 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-in fade-in duration-300">
             {/* Courses Left (8 cols) */}
             <div className="lg:col-span-8 space-y-6">
-              
+
               {/* High School Wing */}
               <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -296,8 +292,8 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
                         {downloadingId === doc.id
                           ? 'Saving...'
                           : downloadedId === doc.id
-                          ? 'Saved ✓'
-                          : 'Download'}
+                            ? 'Saved ✓'
+                            : 'Download'}
                       </button>
                     </div>
                   ))}
@@ -374,7 +370,7 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
         {/* ============================================================== */}
         {activeTab === 'teachers' && (
           <div className="space-y-6 animate-in fade-in duration-300">
-            
+
             {/* Search + Filter Header */}
             <div className="p-4 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex flex-col lg:flex-row items-center justify-between gap-4">
               {/* Search Box */}
@@ -403,11 +399,10 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
                   <button
                     key={tab.id}
                     onClick={() => setFacultyFilter(tab.id)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                      facultyFilter === tab.id
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${facultyFilter === tab.id
                         ? 'bg-[#0A192F] text-white shadow-sm'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                    }`}
+                      }`}
                   >
                     {tab.label}
                   </button>

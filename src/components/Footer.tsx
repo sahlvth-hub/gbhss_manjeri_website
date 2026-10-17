@@ -58,7 +58,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a href="#about" className="hover:text-amber-400 transition-colors">
-                  About Us (History, Vision &amp; Heritage)
+                  About Us (Vision, Mission &amp; Core Values)
                 </a>
               </li>
               <li>
@@ -68,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a href="#facilities" className="hover:text-amber-400 transition-colors">
-                  Facilities (Library, Labs, Classrooms &amp; Sports)
+                  Facilities (Laboratories, Classrooms &amp; Sports)
                 </a>
               </li>
               <li>
