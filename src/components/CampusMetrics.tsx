@@ -191,6 +191,40 @@ export const CampusMetrics: React.FC = () => {
           })}
         </div>
 
+        {/* 5. Ancillary Campus Infrastructure Strip */}
+        <div className="mt-12 p-6 rounded-3xl bg-slate-50 border border-slate-200/90 shadow-2xs">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0">
+                🌿
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-slate-900">
+                  Eco-Campus &amp; Student Welfare Amenities
+                </h4>
+                <p className="text-xs text-slate-500">
+                  Supporting sustainable campus life and holistic student well-being under Kerala Government schemes.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-semibold text-slate-700 w-full md:w-auto">
+              <div className="px-3 py-2 rounded-xl bg-white border border-slate-200 text-center">
+                🍚 Midday Meal Dining
+              </div>
+              <div className="px-3 py-2 rounded-xl bg-white border border-slate-200 text-center">
+                ☀️ 20kW Solar Array
+              </div>
+              <div className="px-3 py-2 rounded-xl bg-white border border-slate-200 text-center">
+                💧 Purified Water Plant
+              </div>
+              <div className="px-3 py-2 rounded-xl bg-white border border-slate-200 text-center">
+                🩺 Student Health Clinic
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

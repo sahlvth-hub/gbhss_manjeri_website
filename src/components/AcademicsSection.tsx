@@ -10,6 +10,10 @@ import {
   Layers,
   ChevronRight,
   Filter,
+  Search,
+  Calendar,
+  Clock,
+  Compass,
 } from 'lucide-react';
 import {
   ACADEMIC_STREAMS,
@@ -23,8 +27,9 @@ interface AcademicsSectionProps {
 }
 
 export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenPortalAdmissions }) => {
-  const [activeTab, setActiveTab] = useState<'courses' | 'departments' | 'teachers'>('courses');
+  const [activeTab, setActiveTab] = useState<'courses' | 'departments' | 'teachers' | 'calendar'>('courses');
   const [facultyFilter, setFacultyFilter] = useState<string>('all');
+  const [facultySearch, setFacultySearch] = useState<string>('');
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
   const [downloadedId, setDownloadedId] = useState<string | null>(null);
 
@@ -60,12 +65,54 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
     }, 600);
   };
 
-  const filteredFaculty =
-    facultyFilter === 'all'
-      ? FACULTY_DIRECTORY
-      : FACULTY_DIRECTORY.filter((f) =>
-          f.department.toLowerCase().includes(facultyFilter.toLowerCase())
-        );
+  const filteredFaculty = FACULTY_DIRECTORY.filter((f) => {
+    const matchesFilter =
+      facultyFilter === 'all' ||
+      f.department.toLowerCase().includes(facultyFilter.toLowerCase());
+    const matchesSearch =
+      facultySearch === '' ||
+      f.name.toLowerCase().includes(facultySearch.toLowerCase()) ||
+      f.designation.toLowerCase().includes(facultySearch.toLowerCase()) ||
+      f.department.toLowerCase().includes(facultySearch.toLowerCase()) ||
+      f.qualification.toLowerCase().includes(facultySearch.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
+  const academicCalendarTerms = [
+    {
+      term: "Term 1 (June – August)",
+      focus: "Curriculum Inception & Diagnostic Assessments",
+      events: [
+        { date: "June 02", title: "School Reopening & Pravesanolsavam 2025" },
+        { date: "June 20", title: "HSCAP Plus One Admissions Allotment Phase 1" },
+        { date: "July 15", title: "Unit Tests & Little KITEs Digital Club Induction" },
+        { date: "August 18", title: "First Terminal Mid-Term Examinations" },
+        { date: "August 28", title: "Onam Cultural Celebrations & Onam Vacation" },
+      ],
+    },
+    {
+      term: "Term 2 (September – December)",
+      focus: "Co-Curricular Triumphs & Half-Yearly Exams",
+      events: [
+        { date: "September 08", title: "School Reopens after Onam Vacation" },
+        { date: "October 10", title: "School Kalolsavam & Sasthrolsavam (Science Fair)" },
+        { date: "November 12", title: "Annual Athletic Meet & Inter-House Sports Championship" },
+        { date: "December 15", title: "Half-Yearly (Christmas) Examinations 2025" },
+        { date: "December 23", title: "Christmas & New Year Vacation Commences" },
+      ],
+    },
+    {
+      term: "Term 3 (January – March)",
+      focus: "Board Preparation, Model Exams & Public Finals",
+      events: [
+        { date: "January 05", title: "School Reopens & Intensive Board Revision Begins" },
+        { date: "January 20", title: "Higher Secondary Lab Practical Internal Trials" },
+        { date: "February 10", title: "Kerala SSLC & Plus Two Model Examinations" },
+        { date: "February 22", title: "DHSE Plus Two Practical Public Board Examinations" },
+        { date: "March 03", title: "Kerala SSLC & Higher Secondary Public Examinations" },
+      ],
+    },
+  ];
 
   return (
     <section id="academics" className="py-16 lg:py-24 bg-[#FBFBFA] border-b border-slate-100">
@@ -81,14 +128,14 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
             COURSES, DEPARTMENTS &amp; TEACHERS
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Delivering rigorous, high-standard state curriculum across high school and higher secondary tiers under the General Education Department, Government of Kerala.
+            Delivering the gold standard of state secondary and higher secondary education in Kerala, blending academic inquiry with laboratory practice and career mentorship.
           </p>
 
           {/* Sub-Navigation Pill Tabs */}
-          <div className="inline-flex p-1.5 mt-8 bg-slate-200/70 rounded-2xl border border-slate-300/80 shadow-inner">
+          <div className="inline-flex flex-wrap justify-center p-1.5 mt-8 bg-slate-200/70 rounded-2xl border border-slate-300/80 shadow-inner gap-1">
             <button
               onClick={() => setActiveTab('courses')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'courses'
                   ? 'bg-white text-slate-950 shadow-md scale-[1.02]'
                   : 'text-slate-600 hover:text-slate-950'
@@ -99,7 +146,7 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
             </button>
             <button
               onClick={() => setActiveTab('departments')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'departments'
                   ? 'bg-white text-slate-950 shadow-md scale-[1.02]'
                   : 'text-slate-600 hover:text-slate-950'
@@ -110,14 +157,25 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
             </button>
             <button
               onClick={() => setActiveTab('teachers')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === 'teachers'
                   ? 'bg-white text-slate-950 shadow-md scale-[1.02]'
                   : 'text-slate-600 hover:text-slate-950'
               }`}
             >
               <Users className="w-4 h-4 text-emerald-600" />
-              <span>Teachers &amp; Faculty ({FACULTY_DIRECTORY.length}+)</span>
+              <span>Teachers Directory ({FACULTY_DIRECTORY.length}+)</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('calendar')}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                activeTab === 'calendar'
+                  ? 'bg-white text-slate-950 shadow-md scale-[1.02]'
+                  : 'text-slate-600 hover:text-slate-950'
+              }`}
+            >
+              <Calendar className="w-4 h-4 text-purple-600" />
+              <span>Academic Calendar 2025–26</span>
             </button>
           </div>
         </div>
@@ -137,7 +195,7 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
                     <span className="text-[0.7rem] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
                       High School Tier • Code: 18021
                     </span>
-                    <h3 className="text-xl font-black text-slate-900 tracking-tight mt-2">
+                    <h3 className="text-xl font-black text-slate-900 tracking-tight mt-2 font-crest">
                       KERALA SSLC HIGH SCHOOL (CLASSES 8 TO 10)
                     </h3>
                   </div>
@@ -195,7 +253,7 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
                     </div>
 
                     <p className="text-xs text-slate-500 italic">
-                      Eligibility: {stream.qualification}
+                      Eligibility &amp; Gateway: {stream.qualification}
                     </p>
                   </div>
                 ))}
@@ -312,17 +370,27 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
         )}
 
         {/* ============================================================== */}
-        {/* TAB 3: TEACHERS & FACULTY DIRECTORY */}
+        {/* TAB 3: TEACHERS & FACULTY DIRECTORY (WITH SEARCH & FILTERS) */}
         {/* ============================================================== */}
         {activeTab === 'teachers' && (
           <div className="space-y-6 animate-in fade-in duration-300">
-            {/* Filter Pills */}
-            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
-                <Filter className="w-4 h-4 text-amber-600" />
-                <span>Filter by Department:</span>
+            
+            {/* Search + Filter Header */}
+            <div className="p-4 rounded-3xl bg-white border border-slate-200/80 shadow-xs flex flex-col lg:flex-row items-center justify-between gap-4">
+              {/* Search Box */}
+              <div className="relative w-full lg:w-80">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={facultySearch}
+                  onChange={(e) => setFacultySearch(e.target.value)}
+                  placeholder="Search faculty by name or subject..."
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-amber-400 bg-slate-50/50"
+                />
               </div>
-              <div className="flex flex-wrap gap-2">
+
+              {/* Department Filter Pills */}
+              <div className="flex flex-wrap items-center gap-2 w-full lg:w-auto">
                 {[
                   { id: 'all', label: 'All Faculty' },
                   { id: 'science', label: 'Science' },
@@ -352,7 +420,7 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
               {filteredFaculty.map((teacher) => (
                 <div
                   key={teacher.name}
-                  className="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                  className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
@@ -382,11 +450,75 @@ Official Contact: gbhssmanjeri11010@gmail.com`;
               ))}
             </div>
 
-            <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/70 text-xs text-amber-950 flex items-center justify-between">
+            {filteredFaculty.length === 0 && (
+              <div className="p-8 text-center bg-white rounded-3xl border border-slate-200 text-slate-500 text-sm">
+                No faculty members found matching "{facultySearch}". Try adjusting your search.
+              </div>
+            )}
+
+            <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/70 text-xs text-amber-950 flex flex-col sm:flex-row items-center justify-between gap-2">
               <span>
                 Full faculty roster of <strong>82 Teaching Staff</strong> registered under Kerala General Education Department (Sametham verified).
               </span>
               <span className="font-bold">Institution ID: 18021</span>
+            </div>
+          </div>
+        )}
+
+        {/* ============================================================== */}
+        {/* TAB 4: ACADEMIC CALENDAR 2025–26 */}
+        {/* ============================================================== */}
+        {activeTab === 'calendar' && (
+          <div className="space-y-8 animate-in fade-in duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {academicCalendarTerms.map((termBlock) => (
+                <div
+                  key={termBlock.term}
+                  className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="px-3 py-1 rounded-full text-xs font-black bg-blue-50 text-blue-800 border border-blue-200 inline-block mb-3">
+                      {termBlock.term}
+                    </span>
+                    <h3 className="text-sm font-bold text-slate-900 mb-4">
+                      {termBlock.focus}
+                    </h3>
+
+                    <div className="space-y-3 pt-2 border-t border-slate-100">
+                      {termBlock.events.map((ev) => (
+                        <div key={ev.title} className="flex items-start gap-3 text-xs">
+                          <span className="px-2 py-0.5 rounded font-mono font-bold text-[10px] bg-slate-100 text-slate-700 shrink-0">
+                            {ev.date}
+                          </span>
+                          <span className="text-slate-700 leading-snug font-medium">
+                            {ev.title}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-3 border-t border-slate-100 text-[11px] text-slate-400 font-semibold">
+                    Approved by Kerala DHSE &amp; SCERT
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-5 rounded-3xl bg-[#0A192F] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <Clock className="w-5 h-5 text-amber-400 shrink-0" />
+                <div>
+                  <h4 className="text-sm font-bold">Standard School Working Hours</h4>
+                  <p className="text-xs text-slate-300">Monday to Friday: 9:30 AM – 4:30 PM • 200+ Instructional Days</p>
+                </div>
+              </div>
+              <button
+                onClick={() => handleDownload(DOWNLOAD_DOCUMENTS[0])}
+                className="px-4 py-2 rounded-xl bg-amber-400 text-slate-950 font-bold text-xs hover:bg-amber-300 transition-colors shrink-0"
+              >
+                Download Full PDF Calendar
+              </button>
             </div>
           </div>
         )}

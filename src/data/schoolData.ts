@@ -53,8 +53,6 @@ export const SCHOOL_INFO = {
   studentStrength: "2,400+",
   teachingStaff: 82,
   nonTeachingStaff: 12,
-  leadDeveloper: "Mohammed Sahl",
-  developerTitle: "Lead Portal Architect & Full-Stack Engineer",
 };
 
 export const KALOLSAVAM_RECORDS = {

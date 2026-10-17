@@ -1,6 +1,6 @@
 import React from 'react';
 import { SchoolEmblem } from './SchoolEmblem';
-import { ArrowUpRight, Clock, MapPin, Code2, Sparkles, Heart } from 'lucide-react';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 
 interface FooterProps {
   onOpenPortal: () => void;
@@ -167,50 +167,10 @@ export const Footer: React.FC<FooterProps> = ({
 
         </div>
 
-        {/* Creator & Developer Recognition Card */}
-        <div className="my-10 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-[#0e172a] to-slate-900 border border-amber-500/30 shadow-xl flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden">
-          {/* Subtle background glow */}
-          <div className="absolute -right-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="flex items-center gap-4 z-10 text-center md:text-left">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-slate-950 font-black text-lg flex items-center justify-center shadow-lg shadow-amber-500/20 shrink-0 ring-2 ring-amber-300/40">
-              MS
-            </div>
-            <div>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-1">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
-                  <Code2 className="w-3.5 h-3.5" />
-                  Website Architecture &amp; Development
-                </span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-400/20 text-amber-300 border border-amber-400/40 uppercase tracking-wider">
-                  Official Portal Creator
-                </span>
-              </div>
-              <h3 className="text-base sm:text-lg font-extrabold text-white tracking-wide font-crest">
-                MOHAMMED SAHL
-              </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
-                Lead Developer &amp; Digital Architect behind the GBHSS Manjeri Official School Portal
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 z-10 shrink-0">
-            <div className="px-3.5 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-[11px] text-slate-300 font-medium flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              <span>Full-Stack Engineering</span>
-            </div>
-            <div className="px-3.5 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700/80 text-[11px] text-slate-300 font-medium flex items-center gap-1.5">
-              <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400/20" />
-              <span>Dedicated School Project</span>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 border-t border-slate-800/80">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © 1908–2026 Government Boys Higher Secondary School, Manjeri. All Rights Reserved. • Designed &amp; Developed with excellence by <strong className="text-amber-400 font-semibold">Mohammed Sahl</strong>.
+            © 1908–2026 Government Boys Higher Secondary School, Manjeri. All Rights Reserved.
           </p>
 
           <div className="flex items-center gap-4 text-[11px]">

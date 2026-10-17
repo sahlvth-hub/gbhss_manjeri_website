@@ -73,20 +73,20 @@ export default function App() {
           onOpenKailasamModal={() => setHistoryModalOpen(true)}
         />
 
-        {/* Infrastructure & Resources (Campus Overview & Metrics) */}
+        {/* Academic Excellence (Courses, Departments & Teachers) */}
+        <AcademicsSection onOpenPortalAdmissions={() => setPortalOpen(true)} />
+
+        {/* Infrastructure & Resources (Facilities: Library, Labs, Classrooms & Sports) */}
         <CampusMetrics />
 
-        {/* Co-Curricular & Civic Training (Student Programmes & Uniformed Wings) */}
+        {/* Co-Curricular & Civic Training (Programmes: Events, Clubs, Arts & Extracurricular) */}
         <ProgrammesSection />
 
-        {/* Verified Documented Records (State Honours & Competitive Triumphs) */}
+        {/* Verified Documented Records (Achievements: Academic Results, Sports Awards & Accomplishments) */}
         <AchievementsSection
           onOpenKalolsavamDetail={handleOpenKalolsavam}
           onOpenSportsDetail={handleOpenSports}
         />
-
-        {/* Academic Excellence (Curriculum Streams & Official Downloads Desk) */}
-        <AcademicsSection />
 
         {/* Campus Chronicles (Life at GBHSS Manjeri) */}
         <LifeGallery

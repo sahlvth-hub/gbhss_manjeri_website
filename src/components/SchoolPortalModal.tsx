@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   X,
   Lock,
@@ -31,6 +31,13 @@ export const SchoolPortalModal: React.FC<SchoolPortalModalProps> = ({
   defaultTab = 'sametham',
 }) => {
   const [activeTab, setActiveTab] = useState<'sametham' | 'admissions' | 'faculty' | 'certificates'>(defaultTab);
+
+  useEffect(() => {
+    if (defaultTab) {
+      setActiveTab(defaultTab);
+    }
+  }, [defaultTab, isOpen]);
+
   const [facultySearch, setFacultySearch] = useState('');
   
   // WGPA Calculator state
@@ -618,7 +625,7 @@ export const SchoolPortalModal: React.FC<SchoolPortalModalProps> = ({
 
         {/* Modal Footer */}
         <div className="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500 shrink-0">
-          <span>School Code: 18021 | HSS Code: 11010 • Portal Engineered by <strong className="text-slate-800 font-semibold">Mohammed Sahl</strong></span>
+          <span>School Code: 18021 | HSS Code: 11010</span>
           <button
             onClick={onClose}
             className="px-4 py-1.5 bg-white border border-slate-200 rounded-lg font-medium text-slate-700 hover:bg-slate-100"

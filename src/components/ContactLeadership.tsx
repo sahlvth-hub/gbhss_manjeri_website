@@ -287,6 +287,49 @@ export const ContactLeadership: React.FC = () => {
 
             </div>
           </div>
+        </div>
+
+        {/* Statutory Committees & Transit Directions Strip */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          {/* Statutory Card 1 */}
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200">
+              Statutory Protection
+            </span>
+            <h4 className="text-sm font-bold text-slate-900 mt-2 mb-1">
+              Anti-Ragging &amp; POCSO Cell
+            </h4>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Zero-tolerance campus protection committee. Emergency Toll-Free Helpline: <strong>1098 (Childline)</strong> or contact the Headmaster's office.
+            </p>
+          </div>
+
+          {/* Statutory Card 2 */}
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+              Government Transparency
+            </span>
+            <h4 className="text-sm font-bold text-slate-900 mt-2 mb-1">
+              Right to Information (RTI) Desk
+            </h4>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              State Public Information Officer: Senior Superintendent, Administrative Block, GBHSS Manjeri. Appellate Authority: Principal.
+            </p>
+          </div>
+
+          {/* Statutory Card 3 */}
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+              Transit &amp; Route
+            </span>
+            <h4 className="text-sm font-bold text-slate-900 mt-2 mb-1">
+              How to Reach Campus
+            </h4>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Located on Court Road, Kacherippadi. Just 800m from Manjeri Central Bus Stand. Nearest Rail: Angadipuram (18 km).
+            </p>
+          </div>
 
         </div>
 
