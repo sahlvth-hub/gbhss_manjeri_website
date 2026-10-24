@@ -63,7 +63,7 @@ export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox })
       y: 0,
       transition: {
         duration: 1.0,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
       },
     },
   };
@@ -75,7 +75,7 @@ export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox })
       y: 0,
       transition: {
         duration: 1.0,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
       },
     },
   };

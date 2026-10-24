@@ -17,7 +17,7 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
       rotateY: 0,
       transition: {
         duration: 0.85,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
       },
     },
   };
@@ -31,7 +31,7 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
       y: 0,
       transition: {
         duration: 0.85,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
         delay: 0.15,
       },
     },
@@ -46,7 +46,7 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
       x: 0,
       transition: {
         duration: 0.75,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
         delay: 0.25,
         staggerChildren: 0.08,
       },
@@ -61,7 +61,7 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
       y: 0,
       transition: {
         duration: 0.45,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
       },
     },
   };
@@ -75,7 +75,7 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
       x: 0,
       transition: {
         duration: 0.75,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
         delay: 0.4,
       },
     },

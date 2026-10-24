@@ -28,7 +28,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
       },
     },
   };
@@ -43,7 +43,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         className="absolute inset-0 w-full h-full z-0 overflow-hidden"
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
       >
         <img
           src={schoolCampusPhoto}
@@ -89,7 +89,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
               className="inline-block"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             >
               Empowering Minds,{' '}
             </motion.span>
@@ -98,7 +98,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
               className="inline-block bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             >
               Shaping Futures
             </motion.span>
