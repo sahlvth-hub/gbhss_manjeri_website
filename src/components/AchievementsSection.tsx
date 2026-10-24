@@ -86,7 +86,9 @@ export const AchievementsSection: React.FC<AchievementsSectionProps> = ({
           </motion.span>
           <motion.h2
             variants={headerVariants}
-            className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 ${isMalayalam ? 'font-sans' : 'font-crest'}`}
+            className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 ${
+              isMalayalam ? 'font-sans font-black' : 'font-outfit-hero font-extrabold'
+            }`}
           >
             {t.achievements.title}
           </motion.h2>

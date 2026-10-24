@@ -86,7 +86,7 @@ export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox })
   return (
     <section id="gallery" className="py-16 lg:py-20 bg-white border-b border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header with Staggered Entrance */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"
@@ -104,7 +104,7 @@ export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox })
           <motion.h2
             variants={headerVariants}
             className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 ${
-              isMalayalam ? 'font-sans' : 'font-crest'
+              isMalayalam ? 'font-sans font-black' : 'font-outfit-hero font-extrabold'
             }`}
           >
             {t.gallery.title}
@@ -159,9 +159,8 @@ export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox })
                   {item.tag}
                 </span>
 
-                <h3 className={`text-lg font-bold text-white tracking-tight leading-snug group-hover:text-amber-300 transition-colors ${
-                  isMalayalam ? 'font-sans' : 'font-crest'
-                }`}>
+                <h3 className={`text-lg font-bold text-white tracking-tight leading-snug group-hover:text-amber-300 transition-colors ${isMalayalam ? 'font-sans' : 'font-crest'
+                  }`}>
                   {item.title}
                 </h3>
 

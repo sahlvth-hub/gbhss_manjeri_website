@@ -198,7 +198,7 @@ export const translations: Record<Language, Translations> = {
     },
     heritage: {
       kicker: 'ABOUT US — ESTABLISHED 1908',
-      title: 'VISION, MISSION & CORE VALUES',
+      title: 'Vision, Mission & Core Values',
       description: 'Government Boys Higher Secondary School, Manjeri, stands as a premier educational anchor in Malappuram district. Over 118 years of public school stewardship, academic triumphs, and civic leadership.',
       visionTitle: 'VISION',
       visionDesc: 'To empower students from all socio-economic backgrounds with transformative knowledge, scientific inquiry, ethical responsibility, and forward-looking leadership suited for the modern world.',
@@ -212,7 +212,7 @@ export const translations: Record<Language, Translations> = {
     },
     facilities: {
       kicker: 'INFRASTRUCTURE & RESOURCES',
-      title: 'FACILITIES — LABORATORIES, CLASSROOMS & SPORTS',
+      title: 'Facilities — Laboratories, Classrooms & Sports',
       description: 'World-class physical, technological, and athletic facilities supporting 2,400+ students on a lush 7.25-acre campus at Kacherippadi, Manjeri.',
       keyFeaturesHeading: 'Key Features & Equipment:',
       labs: {
@@ -276,7 +276,7 @@ export const translations: Record<Language, Translations> = {
     },
     achievements: {
       kicker: 'STATE CHAMPIONS & CULTURAL HONOURS',
-      title: 'SPORTS AWARDS & ARTS ACHIEVEMENTS',
+      title: 'Sports Awards & Arts Achievements',
       description: 'Documented state-level competitive records, Shooting Championship triumphs, Kerala State School Games medals, and Kerala School Kalolsavam arts honours.',
       shootingTitle: 'Shooting Championship — Overall First 🏆',
       sportsCard: {
@@ -315,7 +315,7 @@ export const translations: Record<Language, Translations> = {
     },
     gallery: {
       kicker: 'CAMPUS CHRONICLES',
-      title: 'LIFE AT GBHSS MANJERI',
+      title: 'Moments at GBHSS Manjeri',
       description: 'A glimpse into daily school life, celebrations, athletic drills, and artistic expressions.',
       items: {
         campus: {
@@ -516,7 +516,7 @@ export const translations: Record<Language, Translations> = {
     },
     gallery: {
       kicker: 'കാമ്പസ് വിശേഷങ്ങൾ',
-      title: 'ജി.ബി.എച്ച്.എസ്.എസ് മഞ്ചേരിയിലെ ജീവിതം',
+      title: 'ജി.ബി.എച്ച്.എസ്.എസ് മഞ്ചേരിയിലെ നിമിഷങ്ങൾ',
       description: 'ദൈനംദിന സ്കൂൾ ജീവിതം, ആഘോഷങ്ങൾ, കായിക പരിശീലനങ്ങൾ, കലാ പ്രകടനങ്ങൾ എന്നിവയുടെ നേർക്കാഴ്ചകൾ.',
       items: {
         campus: {

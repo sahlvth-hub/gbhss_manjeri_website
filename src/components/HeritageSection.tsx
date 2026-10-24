@@ -76,7 +76,7 @@ export const HeritageSection: React.FC = () => {
           <motion.h2
             variants={headerVariants}
             className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 ${
-              isMalayalam ? 'font-sans' : 'font-crest'
+              isMalayalam ? 'font-sans font-black' : 'font-outfit-hero font-extrabold'
             }`}
           >
             {t.heritage.title}

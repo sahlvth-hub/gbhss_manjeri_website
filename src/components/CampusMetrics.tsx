@@ -81,7 +81,7 @@ export const CampusMetrics: React.FC = () => {
   return (
     <section id="facilities" className="py-16 lg:py-24 bg-white border-b border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header with Framer Motion Reveal */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"
@@ -99,7 +99,7 @@ export const CampusMetrics: React.FC = () => {
           <motion.h2
             variants={headerVariants}
             className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 ${
-              isMalayalam ? 'font-sans' : 'font-crest'
+              isMalayalam ? 'font-sans font-black' : 'font-outfit-hero font-extrabold'
             }`}
           >
             {t.facilities.title}
@@ -144,9 +144,8 @@ export const CampusMetrics: React.FC = () => {
                   <span className="text-[0.68rem] font-bold uppercase tracking-widest text-slate-400 block mb-1">
                     {fac.category}
                   </span>
-                  <h3 className={`text-lg sm:text-xl font-black text-slate-900 tracking-tight mb-3 group-hover:text-blue-900 transition-colors ${
-                    isMalayalam ? 'font-sans' : 'font-crest'
-                  }`}>
+                  <h3 className={`text-lg sm:text-xl font-black text-slate-900 tracking-tight mb-3 group-hover:text-blue-900 transition-colors ${isMalayalam ? 'font-sans' : 'font-crest'
+                    }`}>
                     {fac.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">

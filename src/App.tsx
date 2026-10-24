@@ -85,7 +85,7 @@ export default function App() {
           onOpenSportsDetail={handleOpenSports}
         />
 
-        {/* Campus Chronicles (Life at GBHSS Manjeri) */}
+        {/* Campus Chronicles (Moments at GBHSS Manjeri) */}
         <LifeGallery
           onOpenPhotoLightbox={handleOpenPhotoLightbox}
         />
