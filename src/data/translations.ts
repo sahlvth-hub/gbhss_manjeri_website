@@ -174,6 +174,26 @@ export interface Translations {
     printDossier: string;
     kailasamDossier: string;
   };
+  excellence: {
+    kicker: string;
+    title: string;
+    subtitle: string;
+    verificationNote: string;
+    featured: {
+      title: string;
+      category: string;
+      description: string;
+      status: string;
+      claimNote: string;
+    };
+    awards: {
+      title: string;
+      category: string;
+      description: string;
+      status: string;
+      claimNote: string;
+    }[];
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -376,6 +396,49 @@ export const translations: Record<Language, Translations> = {
       printDossier: 'Print Record Sheet',
       kailasamDossier: 'KAILASAM HERITAGE DOSSIER',
     },
+    excellence: {
+      kicker: 'HONOURS & RECOGNITION',
+      title: 'Excellence in Education',
+      subtitle: 'Celebrating our achievements, dedication and commitment to learning.',
+      verificationNote: 'Some details are pending official verification and will be updated once confirmed.',
+      featured: {
+        title: 'Sreshta Vidyalayam Puraskaram',
+        category: 'State-Level School Recognition',
+        description: 'State-level recognition under the Sreshta Vidyalayam Puraskaram scheme. Reported to have secured a top position in the Secondary Category in Kerala.',
+        status: 'Pending Verification',
+        claimNote: 'Exact rank, category, year, and prize details are awaiting official confirmation before publication.',
+      },
+      awards: [
+        {
+          title: 'School Social Service Scheme (SSSS) Award',
+          category: 'Community Service',
+          description: 'Recognised under the School Social Service Scheme for outstanding community engagement and social outreach activities.',
+          status: 'Pending Verification',
+          claimNote: 'Official award name, winning years, and consecutive-win claims require verification.',
+        },
+        {
+          title: 'State PTA Best Teacher Award',
+          category: 'Teaching Excellence',
+          description: 'State-level PTA recognition awarded for exemplary teaching and student mentorship.',
+          status: 'Pending Verification',
+          claimNote: 'Recipient name and award year to be added upon verification.',
+        },
+        {
+          title: 'Deshabhimani Aksharamuttam Quiz Championships',
+          category: 'Quiz & Academic Contest',
+          description: 'Notable participation and achievements in the Deshabhimani Aksharamuttam quiz competition at district and regional levels.',
+          status: 'Pending Verification',
+          claimNote: 'Exact placements, competition stages, and years require confirmation.',
+        },
+        {
+          title: 'Kerala State School Sports & Kalolsavam',
+          category: 'Sports & Cultural Arts',
+          description: 'Achievements in athletics, football, and performing arts at the Kerala State School Sports and Kalolsavam competitions.',
+          status: 'Pending Verification',
+          claimNote: 'Verified results, event names, and student/team placements to be published once confirmed.',
+        },
+      ],
+    },
   },
 
   ml: {
@@ -576,6 +639,49 @@ export const translations: Record<Language, Translations> = {
       kalolsavamTitle: 'കേരള സ്കൂൾ കലോത്സവ രേഖകൾ',
       printDossier: 'പ്രിന്റ് എടുക്കുക',
       kailasamDossier: 'കൈലാസം പൈതൃക രേഖകൾ',
+    },
+    excellence: {
+      kicker: 'ബഹുമതികൾ & അംഗീകാരങ്ങൾ',
+      title: 'വിദ്യാഭ്യാസ മികവ്',
+      subtitle: 'നമ്മുടെ നേട്ടങ്ങളും സമർപ്പണവും പഠനത്തോടുള്ള പ്രതിബദ്ധതയും ആഘോഷിക്കുന്നു.',
+      verificationNote: 'ചില വിവരങ്ങൾ ഔദ്യോഗിക സ്ഥിരീകരണത്തിന് കാത്തിരിക്കുന്നു, സ്ഥിരീകരിച്ചാലുടൻ അപ്ഡേറ്റ് ചെയ്യും.',
+      featured: {
+        title: 'ശ്രേഷ്ഠ വിദ്യാലയം പുരസ്കാരം',
+        category: 'സംസ്ഥാനതല സ്കൂൾ അംഗീകാരം',
+        description: 'ശ്രേഷ്ഠ വിദ്യാലയം പുരസ്കാരം പദ്ധതിയിൽ സംസ്ഥാനതല അംഗീകാരം. സെക്കൻഡറി വിഭാഗത്തിൽ കേരളത്തിൽ മുൻനിര സ്ഥാനം നേടിയതായി റിപ്പോർട്ട്.',
+        status: 'സ്ഥിരീകരണം ബാക്കി',
+        claimNote: 'കൃത്യമായ റാങ്ക്, വിഭാഗം, വർഷം, സമ്മാന വിവരങ്ങൾ ഔദ്യോഗിക സ്ഥിരീകരണത്തിന് ശേഷം പ്രസിദ്ധീകരിക്കും.',
+      },
+      awards: [
+        {
+          title: 'സ്കൂൾ സാമൂഹിക സേവന പദ്ധതി (SSSS) അവാർഡ്',
+          category: 'സാമൂഹിക സേവനം',
+          description: 'മികച്ച സാമൂഹിക പ്രവർത്തനങ്ങൾക്കും സേവന പ്രവർത്തനങ്ങൾക്കും സ്കൂൾ സാമൂഹിക സേവന പദ്ധതിയിൽ അംഗീകാരം.',
+          status: 'സ്ഥിരീകരണം ബാക്കി',
+          claimNote: 'ഔദ്യോഗിക അവാർഡ് പേര്, വിജയ വർഷങ്ങൾ, തുടർച്ചയായ വിജയ അവകാശവാദങ്ങൾ സ്ഥിരീകരണം ആവശ്യമാണ്.',
+        },
+        {
+          title: 'സ്റ്റേറ്റ് PTA മികച്ച അധ്യാപക പുരസ്കാരം',
+          category: 'അധ്യാപന മികവ്',
+          description: 'മികച്ച അധ്യാപനത്തിനും വിദ്യാർത്ഥി മാർഗ്ഗദർശനത്തിനുമുള്ള സംസ്ഥാനതല PTA അംഗീകാരം.',
+          status: 'സ്ഥിരീകരണം ബാക്കി',
+          claimNote: 'സ്വീകർത്താവിന്റെ പേരും അവാർഡ് വർഷവും സ്ഥിരീകരണത്തിന് ശേഷം ചേർക്കും.',
+        },
+        {
+          title: 'ദേശാഭിമാനി അക്ഷരമുറ്റം ക്വിസ് ചാമ്പ്യൻഷിപ്പ്',
+          category: 'ക്വിസ് & അക്കാദമിക് മത്സരം',
+          description: 'ദേശാഭിമാനി അക്ഷരമുറ്റം ക്വിസ് മത്സരത്തിൽ ജില്ലാ-മേഖലാ തലങ്ങളിൽ ശ്രദ്ധേയമായ പങ്കാളിത്തവും നേട്ടങ്ങളും.',
+          status: 'സ്ഥിരീകരണം ബാക്കി',
+          claimNote: 'കൃത്യമായ സ്ഥാനങ്ങൾ, മത്സര ഘട്ടങ്ങൾ, വർഷങ്ങൾ സ്ഥിരീകരണം ആവശ്യമാണ്.',
+        },
+        {
+          title: 'കേരള സംസ്ഥാന സ്കൂൾ സ്പോർട്സ് & കലോത്സവം',
+          category: 'കായികം & സാംസ്കാരിക കല',
+          description: 'കേരള സംസ്ഥാന സ്കൂൾ സ്പോർട്സ്, കലോത്സവ മത്സരങ്ങളിൽ അത്‌ലറ്റിക്സ്, ഫുട്ബോൾ, പ്രകടന കലകൾ എന്നിവയിലെ നേട്ടങ്ങൾ.',
+          status: 'സ്ഥിരീകരണം ബാക്കി',
+          claimNote: 'സ്ഥിരീകരിച്ച ഫലങ്ങൾ, ഇവന്റ് പേരുകൾ, വിദ്യാർത്ഥി/ടീം സ്ഥാനങ്ങൾ സ്ഥിരീകരണത്തിന് ശേഷം പ്രസിദ്ധീകരിക്കും.',
+        },
+      ],
     },
   },
 };

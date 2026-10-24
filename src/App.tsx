@@ -5,6 +5,7 @@ import { HeritageSection } from './components/HeritageSection';
 import { CampusMetrics } from './components/CampusMetrics';
 import { ProgrammesSection } from './components/ProgrammesSection';
 import { AchievementsSection } from './components/AchievementsSection';
+import { ExcellenceSection } from './components/ExcellenceSection';
 import { AcademicsSection } from './components/AcademicsSection';
 import { LifeGallery } from './components/LifeGallery';
 import { Footer } from './components/Footer';
@@ -84,6 +85,9 @@ export default function App() {
           onOpenKalolsavamDetail={handleOpenKalolsavam}
           onOpenSportsDetail={handleOpenSports}
         />
+
+        {/* Excellence in Education (Awards & Recognition) */}
+        <ExcellenceSection />
 
         {/* Campus Chronicles (Moments at GBHSS Manjeri) */}
         <LifeGallery
