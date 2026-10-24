@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Landmark, BookOpen, Send, CheckCircle2, History, Shield, FileText, Sparkles, Image as ImageIcon, Layers, Eye } from 'lucide-react';
+import { X, Landmark, History, Shield, FileText, Sparkles, Image as ImageIcon } from 'lucide-react';
 import { SchoolEmblem } from './SchoolEmblem';
 import kailasamImage4k from '../assets/images/kailasam-heritage-4k.jpg';
 import kailasamImageOriginal from '../assets/images/kailasam-heritage-original.jpg';
@@ -11,29 +11,8 @@ interface KailasamModalProps {
 
 export const KailasamModal: React.FC<KailasamModalProps> = ({ isOpen, onClose }) => {
   const [photoView, setPhotoView] = useState<'4k' | 'original'>('4k');
-  const [memoryForm, setMemoryForm] = useState({
-    contributorName: '',
-    relation: 'Alumnus / Former Student',
-    year: '1980s',
-    testimony: '',
-  });
-  const [submitted, setSubmitted] = useState(false);
 
   if (!isOpen) return null;
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setMemoryForm({
-        contributorName: '',
-        relation: 'Alumnus / Former Student',
-        year: '1980s',
-        testimony: '',
-      });
-    }, 5000);
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/75 backdrop-blur-sm animate-in fade-in">
@@ -215,108 +194,6 @@ export const KailasamModal: React.FC<KailasamModalProps> = ({ isOpen, onClose })
               Official Committee Archival Note:
             </strong>
             "The exact historical documentation regarding the Kailasam landmark and its multifaceted connection to GBHSS Manjeri is actively being researched and updated by the School Heritage Documentation Committee. [Editable Archival Placeholder]"
-          </div>
-
-          {/* Interactive Oral History Contribution Form */}
-          <div className="bg-white rounded-2xl p-6 border border-amber-200/80 shadow-sm">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-1 flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-amber-700" />
-              <span>Contribute Historical Memory or Document</span>
-            </h4>
-            <p className="text-xs text-slate-500 mb-4">
-              Are you an alumnus, teacher, or local resident with historical records, memoirs, or photos relating to Kailasam &amp; GBHSS Manjeri?
-            </p>
-
-            {submitted ? (
-              <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-900 flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                <span>
-                  Thank you! Your submission has been transmitted to the Heritage Documentation Committee for archival review and citation.
-                </span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div>
-                    <label className="block text-[11px] font-semibold text-slate-700 mb-1">
-                      Contributor Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your name"
-                      value={memoryForm.contributorName}
-                      onChange={(e) =>
-                        setMemoryForm({ ...memoryForm, contributorName: e.target.value })
-                      }
-                      className="w-full p-2 text-xs border border-slate-200 rounded-lg"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-semibold text-slate-700 mb-1">
-                      Relationship
-                    </label>
-                    <select
-                      value={memoryForm.relation}
-                      onChange={(e) =>
-                        setMemoryForm({ ...memoryForm, relation: e.target.value })
-                      }
-                      className="w-full p-2 text-xs border border-slate-200 rounded-lg bg-white"
-                    >
-                      <option>Alumnus / Former Student</option>
-                      <option>Former Faculty / Staff</option>
-                      <option>Local Resident / Historian</option>
-                      <option>Parent / Citizen</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-semibold text-slate-700 mb-1">
-                      Era / Decade
-                    </label>
-                    <select
-                      value={memoryForm.year}
-                      onChange={(e) =>
-                        setMemoryForm({ ...memoryForm, year: e.target.value })
-                      }
-                      className="w-full p-2 text-xs border border-slate-200 rounded-lg bg-white"
-                    >
-                      <option>Before 1970</option>
-                      <option>1970s</option>
-                      <option>1980s</option>
-                      <option>1990s</option>
-                      <option>2000s</option>
-                      <option>Recent Years</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-semibold text-slate-700 mb-1">
-                    Historical Memory, Oral Account or Document Reference *
-                  </label>
-                  <textarea
-                    rows={3}
-                    required
-                    placeholder="Describe the recollection, landmark stories, or reference materials..."
-                    value={memoryForm.testimony}
-                    onChange={(e) =>
-                      setMemoryForm({ ...memoryForm, testimony: e.target.value })
-                    }
-                    className="w-full p-2 text-xs border border-slate-200 rounded-lg resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="px-5 py-2.5 bg-[#2B1B17] hover:bg-[#3D2620] text-amber-200 font-bold text-xs rounded-lg transition-colors flex items-center gap-1.5"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>Transmit to Heritage Committee</span>
-                </button>
-              </form>
-            )}
           </div>
 
         </div>

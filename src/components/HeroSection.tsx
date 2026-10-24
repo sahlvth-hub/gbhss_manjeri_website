@@ -59,7 +59,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         {/* Cinematic Layered Gradients */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/35" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-transparent to-slate-950/95" />
-        
+
         {/* Animated subtle ambient glow pulse */}
         <motion.div
           className="absolute inset-0 bg-radial-at-tl from-amber-500/15 via-transparent to-transparent pointer-events-none"
@@ -86,9 +86,8 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           {/* Grand Main Headline with Staggered Entrance */}
           <motion.h1
             variants={itemVariants}
-            className={`text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.08] mb-6 drop-shadow-md ${
-              isMalayalam ? 'font-sans font-black' : 'font-outfit-hero'
-            }`}
+            className={`text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.08] mb-6 drop-shadow-md ${isMalayalam ? 'font-sans font-black' : 'font-outfit-hero'
+              }`}
           >
             <motion.span
               className="inline-block"
