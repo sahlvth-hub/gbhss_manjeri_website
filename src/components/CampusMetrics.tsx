@@ -5,56 +5,41 @@ import {
   Trophy,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export const CampusMetrics: React.FC = () => {
+  const { t, isMalayalam } = useLanguage();
+
   const coreFacilities = [
     {
       id: "laboratories",
-      title: "SCIENCE & KITE IT LABORATORIES",
-      category: "Practical Research",
-      badge: "4 Specialized Labs",
+      title: t.facilities.labs.title,
+      category: t.facilities.labs.category,
+      badge: t.facilities.labs.badge,
       icon: FlaskConical,
       iconColor: "text-cyan-700 bg-cyan-50 border-cyan-200",
-      description:
-        "Full-fledged Physics, Chemistry, and Biology laboratories equipped for practical experiments, state board practical examinations, and science fair innovations, alongside the Little KITEs IT computing lab.",
-      features: [
-        "Physics lab with optics & electrical benches",
-        "Chemistry lab with chemical reagents & fume hoods",
-        "Biology lab with compound microscopes & specimens",
-        "65+ GNU/Linux networked workstations",
-      ],
+      description: t.facilities.labs.description,
+      features: t.facilities.labs.features,
     },
     {
       id: "classrooms",
-      title: "HI-TECH SMART CLASSROOMS",
-      category: "Digital Pedagogy",
-      badge: "54 Smart Rooms",
+      title: t.facilities.classrooms.title,
+      category: t.facilities.classrooms.category,
+      badge: t.facilities.classrooms.badge,
       icon: Monitor,
       iconColor: "text-blue-700 bg-blue-50 border-blue-200",
-      description:
-        "71 spacious, airy classrooms across the three-tier academic block, featuring 54 KITE-enabled smart classrooms with interactive flat touch panels, audio-visual podiums, and high-speed broadband.",
-      features: [
-        "Interactive flat touch display panels",
-        "Multimedia projectors & sound systems",
-        "High-speed fiber connectivity",
-        "Ergonomic dual-bench student seating",
-      ],
+      description: t.facilities.classrooms.description,
+      features: t.facilities.classrooms.features,
     },
     {
       id: "sports",
-      title: "SPORTS COMPLEX & ARENAS",
-      category: "Athletics & Martial Arts",
-      badge: "State Championship Center",
+      title: t.facilities.sports.title,
+      category: t.facilities.sports.category,
+      badge: t.facilities.sports.badge,
       icon: Trophy,
       iconColor: "text-amber-700 bg-amber-50 border-amber-200",
-      description:
-        "Spacious sports ground and specialized indoor training facilities that have produced national and state champions in Fencing and Boxing under accredited physical education coaching.",
-      features: [
-        "State Fencing training strip (Piste)",
-        "Dedicated Boxing training ring & punch bags",
-        "Volleyball & Badminton outdoor courts",
-        "Track & field athletics practice arena",
-      ],
+      description: t.facilities.sports.description,
+      features: t.facilities.sports.features,
     },
   ];
 
@@ -109,19 +94,21 @@ export const CampusMetrics: React.FC = () => {
             variants={headerVariants}
             className="text-[0.72rem] font-bold uppercase tracking-widest text-amber-700 block mb-2"
           >
-            INFRASTRUCTURE &amp; RESOURCES
+            {t.facilities.kicker}
           </motion.span>
           <motion.h2
             variants={headerVariants}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 font-crest"
+            className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 ${
+              isMalayalam ? 'font-sans' : 'font-crest'
+            }`}
           >
-            FACILITIES — LABORATORIES, CLASSROOMS &amp; SPORTS
+            {t.facilities.title}
           </motion.h2>
           <motion.p
             variants={headerVariants}
             className="text-sm sm:text-base text-slate-600 leading-relaxed"
           >
-            World-class physical, technological, and athletic facilities supporting 2,400+ students on a lush 7.25-acre campus at Kacherippadi, Manjeri.
+            {t.facilities.description}
           </motion.p>
         </motion.div>
 
@@ -157,7 +144,9 @@ export const CampusMetrics: React.FC = () => {
                   <span className="text-[0.68rem] font-bold uppercase tracking-widest text-slate-400 block mb-1">
                     {fac.category}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight mb-3 group-hover:text-blue-900 transition-colors font-crest">
+                  <h3 className={`text-lg sm:text-xl font-black text-slate-900 tracking-tight mb-3 group-hover:text-blue-900 transition-colors ${
+                    isMalayalam ? 'font-sans' : 'font-crest'
+                  }`}>
                     {fac.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
@@ -167,7 +156,7 @@ export const CampusMetrics: React.FC = () => {
 
                 <div className="pt-5 border-t border-slate-100">
                   <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2.5">
-                    Key Features &amp; Equipment:
+                    {t.facilities.keyFeaturesHeading}
                   </span>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
                     {fac.features.map((feat) => (

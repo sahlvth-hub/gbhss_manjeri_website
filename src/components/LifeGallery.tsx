@@ -5,42 +5,45 @@ import schoolCampusPhoto from '../assets/images/gbhss-campus-hero.jpg';
 import kalolsavamImage from '../assets/images/kalolsavam_arts_troupe_1791614655995.jpg';
 import sportsImage from '../assets/images/school_sports_fencing_boxing_1791614667762.jpg';
 import kailasamImage4k from '../assets/images/kailasam-heritage-4k.jpg';
+import { useLanguage } from '../context/LanguageContext';
 
 interface LifeGalleryProps {
   onOpenPhotoLightbox: (photoIndex: number) => void;
 }
 
 export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox }) => {
+  const { t, isMalayalam } = useLanguage();
+
   const galleryItems = [
     {
       image: schoolCampusPhoto,
-      tag: "CAMPUS HERITAGE",
-      title: "Main Block & Courtyard",
-      caption: "Multi-level academic complex with architectural courtyard in Kacherippadi, Manjeri.",
+      tag: t.gallery.items.campus.tag,
+      title: t.gallery.items.campus.title,
+      caption: t.gallery.items.campus.caption,
       tagColor: "bg-amber-100 text-amber-900 border-amber-300",
     },
     {
       image: kailasamImage4k,
-      tag: "✨ 4K HERITAGE LANDMARK",
-      title: "Kailasam Pavilion",
-      sub: "Octagonal Architecture • Estd. 1908",
-      caption: "Historic octagonal building with Mangalore terracotta tiles and stone steps.",
+      tag: t.gallery.items.kailasam.tag,
+      title: t.gallery.items.kailasam.title,
+      sub: t.gallery.items.kailasam.sub,
+      caption: t.gallery.items.kailasam.caption,
       tagColor: "bg-amber-400 text-slate-950 border-amber-500 font-extrabold",
     },
     {
       image: kalolsavamImage,
-      tag: "ARTS & KALOLSAVAM",
-      title: "State Kalolsavam Troupe",
-      sub: "38th State Position • 43 Points in 2024–25",
-      caption: "Vibrant performances in Mohiniyattam, Classical Music, and Folk traditions at the Kerala School Kalolsavam.",
+      tag: t.gallery.items.kalolsavam.tag,
+      title: t.gallery.items.kalolsavam.title,
+      sub: t.gallery.items.kalolsavam.sub,
+      caption: t.gallery.items.kalolsavam.caption,
       tagColor: "bg-orange-100 text-orange-950 border-orange-300",
     },
     {
       image: sportsImage,
-      tag: "ATHLETIC ARENA",
-      title: "Fencing & Boxing Champions",
-      sub: "State Champions 2024 & 2026",
-      caption: "Gold and Silver medal-winning student athletes in Foil, Sabre, and State Boxing tournaments.",
+      tag: t.gallery.items.sports.tag,
+      title: t.gallery.items.sports.title,
+      sub: t.gallery.items.sports.sub,
+      caption: t.gallery.items.sports.caption,
       tagColor: "bg-slate-800 text-amber-300 border-slate-700",
     },
   ];
@@ -96,19 +99,21 @@ export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox })
             variants={headerVariants}
             className="text-[0.72rem] font-bold uppercase tracking-widest text-amber-700 block mb-2"
           >
-            CAMPUS CHRONICLES
+            {t.gallery.kicker}
           </motion.span>
           <motion.h2
             variants={headerVariants}
-            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 font-crest"
+            className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 ${
+              isMalayalam ? 'font-sans' : 'font-crest'
+            }`}
           >
-            LIFE AT GBHSS MANJERI
+            {t.gallery.title}
           </motion.h2>
           <motion.p
             variants={headerVariants}
             className="text-sm sm:text-base text-slate-600 leading-relaxed"
           >
-            A glimpse into daily school life, celebrations, athletic drills, and artistic expressions.
+            {t.gallery.description}
           </motion.p>
         </motion.div>
 
@@ -122,7 +127,7 @@ export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox })
         >
           {galleryItems.map((item, idx) => (
             <motion.div
-              key={item.title}
+              key={idx}
               variants={cardVariants}
               whileHover={{ y: -8, transition: { duration: 0.25 } }}
               whileTap={{ scale: 0.98 }}
@@ -154,7 +159,9 @@ export const LifeGallery: React.FC<LifeGalleryProps> = ({ onOpenPhotoLightbox })
                   {item.tag}
                 </span>
 
-                <h3 className="text-lg font-bold text-white tracking-tight leading-snug group-hover:text-amber-300 transition-colors font-crest">
+                <h3 className={`text-lg font-bold text-white tracking-tight leading-snug group-hover:text-amber-300 transition-colors ${
+                  isMalayalam ? 'font-sans' : 'font-crest'
+                }`}>
                   {item.title}
                 </h3>
 

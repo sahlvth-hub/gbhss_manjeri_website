@@ -2,8 +2,11 @@ import React from 'react';
 import { Eye, Zap, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SchoolEmblem } from './SchoolEmblem';
+import { useLanguage } from '../context/LanguageContext';
 
 export const HeritageSection: React.FC = () => {
+  const { t, isMalayalam } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -66,15 +69,17 @@ export const HeritageSection: React.FC = () => {
             variants={headerVariants}
             className="text-[0.72rem] font-bold uppercase tracking-widest text-amber-700 block mb-2"
           >
-            ABOUT US — ESTABLISHED 1908
+            {t.heritage.kicker}
           </motion.span>
 
           {/* Main Section Title */}
           <motion.h2
             variants={headerVariants}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 font-crest"
+            className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 ${
+              isMalayalam ? 'font-sans' : 'font-crest'
+            }`}
           >
-            VISION, MISSION &amp; CORE VALUES
+            {t.heritage.title}
           </motion.h2>
 
           {/* Description */}
@@ -82,7 +87,7 @@ export const HeritageSection: React.FC = () => {
             variants={headerVariants}
             className="text-sm sm:text-base text-slate-600 leading-relaxed"
           >
-            Government Boys Higher Secondary School, Manjeri, stands as a premier educational anchor in Malappuram district. Over 118 years of public school stewardship, academic triumphs, and civic leadership.
+            {t.heritage.description}
           </motion.p>
         </motion.div>
 
@@ -107,14 +112,14 @@ export const HeritageSection: React.FC = () => {
                 <Eye className="w-6 h-6" />
               </div>
               <h3 className="text-base font-black text-slate-900 tracking-wide uppercase mb-3">
-                VISION
+                {t.heritage.visionTitle}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                To empower students from all socio-economic backgrounds with transformative knowledge, scientific inquiry, ethical responsibility, and forward-looking leadership suited for the modern world.
+                {t.heritage.visionDesc}
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-400 group-hover:text-blue-700 transition-colors">
-              Sametham Ref: Verified Vision
+              {t.heritage.visionTag}
             </div>
           </motion.div>
 
@@ -130,14 +135,14 @@ export const HeritageSection: React.FC = () => {
                 <Zap className="w-6 h-6" />
               </div>
               <h3 className="text-base font-black text-slate-900 tracking-wide uppercase mb-3">
-                MISSION
+                {t.heritage.missionTitle}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Deliver high-standard state curriculum across high school and higher secondary tiers, fostering critical thinking, sports excellence, arts expression, and inclusive civic development.
+                {t.heritage.missionDesc}
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-400 group-hover:text-amber-700 transition-colors">
-              Sametham Ref: Verified Mission
+              {t.heritage.missionTag}
             </div>
           </motion.div>
 
@@ -153,14 +158,14 @@ export const HeritageSection: React.FC = () => {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <h3 className="text-base font-black text-slate-900 tracking-wide uppercase mb-3">
-                CORE VALUES
+                {t.heritage.valuesTitle}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Discipline through cadet corps, creative resonance in Kalolsavam, social empathy, athletic perseverance, and unwavering dedication to constitutional secular ethics.
+                {t.heritage.valuesDesc}
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-400 group-hover:text-emerald-700 transition-colors">
-              Institutional Heritage
+              {t.heritage.valuesTag}
             </div>
           </motion.div>
 

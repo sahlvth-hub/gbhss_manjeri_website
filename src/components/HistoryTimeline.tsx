@@ -2,12 +2,15 @@ import React from 'react';
 import { Landmark, Sparkles, ZoomIn } from 'lucide-react';
 import { motion } from 'framer-motion';
 import kailasamImage4k from '../assets/images/kailasam-heritage-4k.jpg';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HistoryTimelineProps {
   onOpenKailasamModal: () => void;
 }
 
 export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasamModal }) => {
+  const { t, isMalayalam } = useLanguage();
+
   // 1. Photo fades in from left with slight 3D perspective
   const photoVariants = {
     hidden: { opacity: 0, x: -60, rotateY: 8 },
@@ -115,22 +118,22 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
                 {/* Badge Overlay */}
                 <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-amber-400/40 text-[11px] font-bold text-amber-300 shadow">
                   <Sparkles className="w-3 h-3 text-amber-400" />
-                  <span>4K Ultra HD Restored View</span>
+                  <span>{t.history.imageTag4k}</span>
                 </div>
 
                 {/* Tap to open indicator */}
                 <div className="absolute top-3 right-3 z-10 flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[11px] font-medium text-white shadow group-hover:bg-amber-400 group-hover:text-slate-950 transition-all">
                   <ZoomIn className="w-3.5 h-3.5" />
-                  <span>Tap to Open</span>
+                  <span>{t.history.imageTapOpen}</span>
                 </div>
 
                 {/* Bottom Gradient with caption */}
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-white">
                   <p className="text-xs font-semibold text-amber-100 tracking-wide font-crest uppercase">
-                    Kailasam Octagonal Pavilion
+                    {t.history.imageCaptionTitle}
                   </p>
                   <p className="text-[11px] text-amber-200/80 mt-0.5">
-                    Kacherippadi Hilltop Ridge • GBHSS Manjeri
+                    {t.history.imageCaptionSub}
                   </p>
                 </div>
               </motion.div>
@@ -146,19 +149,21 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
                     <Landmark className="w-4 h-4" />
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full text-[0.68rem] font-extrabold uppercase tracking-wider bg-amber-200/80 text-amber-950 border border-amber-300">
-                    HISTORICAL LANDMARK • KAILASAM
+                    {t.history.landmarkBadge}
                   </span>
                   <span className="px-2 py-0.5 rounded-full text-[0.62rem] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200">
-                    Verified Heritage Site
+                    {t.history.verifiedBadge}
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 uppercase tracking-tight font-crest mt-1 mb-3">
-                  KAILASAM — A PART OF OUR HERITAGE
+                <h3 className={`text-xl sm:text-2xl font-extrabold text-slate-900 uppercase tracking-tight mt-1 mb-3 ${
+                  isMalayalam ? 'font-sans' : 'font-crest'
+                }`}>
+                  {t.history.title}
                 </h3>
 
                 <p className="text-sm text-slate-700 leading-relaxed mb-4">
-                  In institutional records and oral history, the association with <strong>"Kailasam"</strong> represents an enduring cultural and local landmark connected with the school's historical surroundings, campus geography at Kacherippadi, and shared community memory dating back to the early decades of the 20th century.
+                  {t.history.description}
                 </p>
               </motion.div>
 
@@ -172,32 +177,32 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
                   whileHover={{ y: -3 }}
                   className="bg-white/90 border border-amber-200 rounded-lg p-2 text-center shadow-2xs hover:shadow-xs transition-shadow"
                 >
-                  <span className="text-[10px] font-semibold text-amber-800 uppercase block">Architecture</span>
-                  <span className="text-xs font-bold text-slate-800">Octagonal Pavilion</span>
+                  <span className="text-[10px] font-semibold text-amber-800 uppercase block">{t.history.specs.architectureLabel}</span>
+                  <span className="text-xs font-bold text-slate-800">{t.history.specs.architectureVal}</span>
                 </motion.div>
                 <motion.div
                   variants={tagItemVariants}
                   whileHover={{ y: -3 }}
                   className="bg-white/90 border border-amber-200 rounded-lg p-2 text-center shadow-2xs hover:shadow-xs transition-shadow"
                 >
-                  <span className="text-[10px] font-semibold text-amber-800 uppercase block">Roofing</span>
-                  <span className="text-xs font-bold text-slate-800">Terracotta Tiles</span>
+                  <span className="text-[10px] font-semibold text-amber-800 uppercase block">{t.history.specs.roofingLabel}</span>
+                  <span className="text-xs font-bold text-slate-800">{t.history.specs.roofingVal}</span>
                 </motion.div>
                 <motion.div
                   variants={tagItemVariants}
                   whileHover={{ y: -3 }}
                   className="bg-white/90 border border-amber-200 rounded-lg p-2 text-center shadow-2xs hover:shadow-xs transition-shadow"
                 >
-                  <span className="text-[10px] font-semibold text-amber-800 uppercase block">Campus Ascent</span>
-                  <span className="text-xs font-bold text-slate-800">Laterite Stone Steps</span>
+                  <span className="text-[10px] font-semibold text-amber-800 uppercase block">{t.history.specs.ascentLabel}</span>
+                  <span className="text-xs font-bold text-slate-800">{t.history.specs.ascentVal}</span>
                 </motion.div>
                 <motion.div
                   variants={tagItemVariants}
                   whileHover={{ y: -3 }}
                   className="bg-white/90 border border-amber-200 rounded-lg p-2 text-center shadow-2xs hover:shadow-xs transition-shadow"
                 >
-                  <span className="text-[10px] font-semibold text-amber-800 uppercase block">Location</span>
-                  <span className="text-xs font-bold text-slate-800">Kacherippadi Ridge</span>
+                  <span className="text-[10px] font-semibold text-amber-800 uppercase block">{t.history.specs.locationLabel}</span>
+                  <span className="text-xs font-bold text-slate-800">{t.history.specs.locationVal}</span>
                 </motion.div>
               </motion.div>
 
@@ -207,9 +212,9 @@ export const HistoryTimeline: React.FC<HistoryTimelineProps> = ({ onOpenKailasam
                 className="bg-amber-50/90 border border-amber-200/80 rounded-xl p-3.5 text-xs text-amber-950 italic leading-relaxed"
               >
                 <span className="font-semibold not-italic text-amber-900 block mb-0.5">
-                  Official Heritage Documentation Note:
+                  {t.history.archivalNoteTitle}
                 </span>
-                The exact historical documentation regarding the Kailasam landmark and its multifaceted connection to GBHSS Manjeri is actively being researched and updated by the School Heritage Documentation Committee. [Editable Archival Placeholder]
+                {t.history.archivalNoteBody}
               </motion.div>
 
             </div>

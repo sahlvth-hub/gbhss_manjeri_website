@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import schoolCampusPhoto from '../assets/images/gbhss-campus-hero.jpg';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroSectionProps {
   onExploreClick: () => void;
@@ -10,6 +11,8 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = () => {
+  const { t, isMalayalam } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -73,17 +76,19 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Bilingual Title: Malayalam */}
+          {/* Kicker badge */}
           <motion.div variants={itemVariants} className="mb-4">
             <p className="inline-block text-sm sm:text-base font-semibold text-amber-300/90 tracking-wide font-serif-title border-b border-amber-400/20 pb-1">
-              ഗവൺമെന്റ് ബോയ്സ് ഹയർ സെക്കൻഡറി സ്കൂൾ, മഞ്ചേരി
+              {t.hero.kicker}
             </p>
           </motion.div>
 
           {/* Grand Main Headline with Staggered Entrance */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05] mb-6 drop-shadow-md font-crest"
+            className={`text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.08] mb-6 drop-shadow-md ${
+              isMalayalam ? 'font-sans font-black' : 'font-outfit-hero'
+            }`}
           >
             <motion.span
               className="inline-block"
@@ -91,7 +96,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             >
-              Empowering Minds,{' '}
+              {t.hero.headlinePart1}
             </motion.span>
             <br />
             <motion.span
@@ -100,7 +105,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             >
-              Shaping Futures
+              {t.hero.headlinePart2}
             </motion.span>
           </motion.h1>
 
@@ -109,7 +114,13 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
             variants={itemVariants}
             className="text-base sm:text-lg lg:text-xl text-slate-200 leading-relaxed max-w-2xl mb-8 font-normal drop-shadow-sm"
           >
-            Welcome to the official portal of <strong className="text-white font-bold">GBHSS Manjeri</strong>. Over a century of distinguished public education, state championship honors, and artistic brilliance in Malappuram, Kerala.
+            {isMalayalam ? (
+              t.hero.subtitle
+            ) : (
+              <>
+                Welcome to the official portal of <strong className="text-white font-bold">{t.hero.subtitleBold}</strong>. {t.hero.subtitleRest}
+              </>
+            )}
           </motion.p>
         </motion.div>
       </div>
